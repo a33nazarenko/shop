@@ -9,10 +9,10 @@ import { Product } from 'src/app/shared/models/product.model';
 export class ItemsListComponent implements OnInit {
 
   productList:Array<Product> = [
-    {title: 'hjdsafjhhdf', cost: 2000},
-    {title: 'hjdsafjhhdf', cost: 2000},
-    {title: 'hjdsafjhhdf', cost: 2000},
-    {title: 'hjdsafjhhdf', cost: 2000}
+    {title: 'hjdsafjhhdf', cost: 2000, id: 1},
+    {title: 'hjdsafjhhdf', cost: 2000, id: 2},
+    {title: 'hjdsafjhhdf', cost: 2000, id: 3},
+    {title: 'hjdsafjhhdf', cost: 2000, id: 4}
   ]
 
   constructor() { }
