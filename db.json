@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "pm1@test.com",
+      "password": "nazarenko",
+      "name": "Anatoliy Nazarenko"
+    },
+    {
+      "email": "patron@test.com",
+      "password": "sadsaassadasdasd",
+      "name": "ewrewr ewrewrewr",
+      "id": 2
+    },
+    {
+      "email": "qqwdqwd@gmail.com",
+      "password": "jnsdfjdfsjnfdsjnsdf",
+      "name": "jasdfjhdfsjkdsf",
+      "id": 3
+    },
+    {
+      "email": "asdasd@gmail.com",
+      "password": "asdasdasd",
+      "name": "asdasd",
+      "id": 4
+    }
+  ]
+}

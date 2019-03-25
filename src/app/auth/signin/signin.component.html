@@ -1,0 +1,39 @@
+<div class="login-page">
+  <div class="form">
+    <form class="login-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div 
+      class="form-group"
+      [ngClass]="{'has-error': form.get('email').invalid && form.get('email').touched}">
+        <input type="email" placeholder="username" id="email" formControlName="email"/>
+        <span class="error-message" *ngIf="form.get('email').invalid && form.get('email').touched">
+          <span *ngIf="form.get('email').errors.required">
+            Required field
+          </span>
+          <span *ngIf="form.get('email').errors.email">
+            Please correct email
+          </span>
+        </span>
+      </div>
+      <div 
+      class="form-group"
+      [ngClass]="{'has-error': form.get('password').invalid && form.get('password').touched}">
+        <input type="password" placeholder="password" id="password" formControlName="password" />
+        <span class="error-message" *ngIf="form.get('password').invalid && form.get('password').touched">
+            <span *ngIf="form.get('password').errors.required">
+              Required field
+            </span>
+            <span *ngIf="form.get('password').errors.minlength">
+              Пароль должен быть больше {{form.get('password').errors.minlength.requiredLength}} символов, сейчас {{form.get('password').errors.minlength.actualLength}}
+            </span>
+          </span>
+      </div>
+      <button 
+      type="submit"
+      [disabled]="form.invalid"
+      >
+      login
+    </button>
+      <p class="message">Not registered? <a [routerLink]="['/auth/signup']">Create an account</a></p>
+    </form>
+  </div>
+</div>

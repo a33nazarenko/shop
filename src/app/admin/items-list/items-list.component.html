@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="all-products col-md-12">
+    <div class="product col-md-3" *ngFor="let item of productList" [routerLink]="['/admin/product-detail']">
+      <img src="assets/images/vue.png" alt="">
+      <p class="description">{{item.title}}</p>
+      <span class="cost">{{item.cost}}$</span>
+      <div class="actions-buttons">
+        <button class="remove">remove</button>
+        <button class="edit">edit</button>
+      </div>
+    </div>
+  </div>
+</div>
