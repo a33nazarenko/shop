@@ -1,0 +1,21 @@
+.create-product {
+    margin:20px 0px;
+    button {
+        margin-top:15px;
+    }
+}
+
+
+.has-error {
+    position: relative;
+    .error-message {
+        position: absolute;
+        font-size: 14px;
+        color: #EF3B3A;
+        left: 7px;
+        top: 68px;
+    }
+    input {
+        border:1px solid red;
+    }
+  }

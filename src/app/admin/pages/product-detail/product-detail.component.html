@@ -1,0 +1,31 @@
+<!-- <div class="card-product" *ngIf="x">
+    <div>
+        <img src="assets/images/vue.png" alt="">
+    </div>
+    <div>
+        <h3 class="title">{{x.title}}</h3>
+        <p class="cost">{{x.description}}$</p>
+        <p class="cost">{{x.price}}$</p>
+       <button class="btn btn-danger">Add to Card</button>
+    </div>
+</div> -->
+
+<div class="row mt-5">
+    <div class="col-md-6">
+        <h3 class="title">{{x.title}}</h3>
+        <img src="assets/images/vue.png" alt="">
+    </div>
+    <div class="col-md-6">
+        <div class="info-product">
+            <p class="cost">{{x.price}}$</p>
+            <div class="action-buttons">
+                <button class="btn btn-danger">Add to Card</button>
+                <button class="favorites" (click)="addToFavorites()">
+                    <i class="far fa-heart" *ngIf="!favorites"></i>
+                    <i class="fas fa-heart" *ngIf="favorites"></i>
+                </button>
+            </div>
+        <p>{{x.description}}</p>
+        </div>
+    </div>
+</div>

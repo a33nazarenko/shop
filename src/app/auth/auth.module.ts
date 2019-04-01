@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthComponent } from './auth.component';
-import { SigninComponent } from './signin/signin.component';
+import { SigninComponent } from './pages/signin/signin.component';
 import { AuthRoutingModule } from './auth-routing.moodule';
-import { SignupComponent } from './signup/signup.component';
+import { SignupComponent } from './pages/signup/signup.component';
 import { SharedModule } from '../shared/shared.module';
 import { AdminModule } from '../admin/admin.module';
 

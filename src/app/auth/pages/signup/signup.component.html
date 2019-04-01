@@ -1,0 +1,48 @@
+<div class="login-page">
+  <div class="form">
+    <form class="register-form" [formGroup]="form"  (ngSubmit)="onSubmit()">
+      <div 
+      class="form-group"
+      [ngClass]="{'has-error': form.get('confirmPassword').invalid && form.get('confirmPassword').touched}">
+        <input type="text" placeholder="confirmPassword" id="confirmPassword" formControlName="confirmPassword" />
+        <span class="error-message" *ngIf="form.get('confirmPassword').invalid && form.get('confirmPassword').touched">
+            <span *ngIf="form.get('confirmPassword').errors.required">
+              Required field
+            </span>
+            <span *ngIf="form.get('confirmPassword').errors.minlength">
+              Пароль должен быть больше {{form.get('password').errors.minlength.requiredLength}} символов, сейчас {{form.get('password').errors.minlength.actualLength}}
+            </span>
+          </span>
+      </div>
+      <div 
+      class="form-group"
+      [ngClass]="{'has-error': form.get('password').invalid && form.get('password').touched}">
+        <input type="password" placeholder="password" id="password" formControlName="password" />
+        <span class="error-message" *ngIf="form.get('password').invalid && form.get('password').touched">
+            <span *ngIf="form.get('password').errors.required">
+              Required field
+            </span>
+            <span *ngIf="form.get('password').errors.minlength">
+              Пароль должен быть больше {{form.get('password').errors.minlength.requiredLength}} символов, сейчас {{form.get('password').errors.minlength.actualLength}}
+            </span>
+          </span>
+      </div>
+      <div 
+      class="form-group"
+      [ngClass]="{'has-error': form.get('email').invalid && form.get('email').touched}">
+        <input type="email" placeholder="email" id="email" formControlName="email"/>
+        <span class="error-message" *ngIf="form.get('email').invalid && form.get('email').touched">
+          <span *ngIf="form.get('email').errors.required">
+            Required field
+          </span>
+          <span *ngIf="form.get('email').errors.email">
+            Please correct email
+          </span>
+        </span>
+      </div>
+      <button type="submit" [disabled]="form.invalid">create</button>
+      <p class="message">Already registered? <a [routerLink]="['/auth']">Sign In</a></p>
+    </form>
+
+  </div>
+</div>

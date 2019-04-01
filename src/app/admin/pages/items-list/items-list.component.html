@@ -1,0 +1,19 @@
+<div class="row">
+    <div>
+        <button class="btn btn-danger" [routerLink]="['/admin/create-product']">Create item</button>
+    </div>
+  <div class="all-products col-md-12">
+    <div class="product col-md-3" *ngFor="let item of model.products">
+    <div class="photo-product">  <img src="assets/images/vue.png" alt="" [routerLink]="['/admin/product-detail', item.productId]"></div>
+      <p class="title" [routerLink]="['/admin/product-detail', item.productId]">{{item.title}}</p>
+      <p>{{item.description}}</p>
+  <div>
+        <span class="price">{{item.price}}$</span>
+        <div class="actions-buttons">
+          <button class="remove" (click)="delete(item.productId)">remove</button>
+          <button class="edit">edit</button>
+        </div>
+  </div>
+    </div>
+  </div>
+</div>
