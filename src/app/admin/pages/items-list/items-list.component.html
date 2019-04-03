@@ -2,18 +2,21 @@
     <div>
         <button class="btn btn-danger" [routerLink]="['/admin/create-product']">Create item</button>
     </div>
-  <div class="all-products col-md-12">
-    <div class="product col-md-3" *ngFor="let item of model.products">
+    <input type="text" [formControl]="search">
+  <div class="all-products col-lg-12">
+    <div class="product col-lg-3 col-md-2" *ngFor="let item of model.products | filter:search.value | paginate: { itemsPerPage: 9, currentPage: p }">
     <div class="photo-product">  <img src="assets/images/vue.png" alt="" [routerLink]="['/admin/product-detail', item.productId]"></div>
       <p class="title" [routerLink]="['/admin/product-detail', item.productId]">{{item.title}}</p>
-      <p>{{item.description}}</p>
+      <p class="desc">{{item.description}}</p>
   <div>
         <span class="price">{{item.price}}$</span>
         <div class="actions-buttons">
           <button class="remove" (click)="delete(item.productId)">remove</button>
-          <button class="edit">edit</button>
+          <button class="edit" [routerLink]="['/admin/update-product', item.productId]">edit</button>
         </div>
   </div>
     </div>
   </div>
 </div>
+
+<pagination-controls (pageChange)="p = $event"></pagination-controls>

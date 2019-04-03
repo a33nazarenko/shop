@@ -7,7 +7,7 @@ import { RoleHelper } from '../helpers/role.helper';
 export class RoleGuard implements CanActivate {
     constructor(public auth: AuthService, public router: Router, private roleHelper: RoleHelper) { }
     canActivate(route: ActivatedRouteSnapshot): boolean {
-        //debugger;
+   
         const expectedRole = route.data.expectedRole;
         const currentRole = this.roleHelper.getRole();
         if (currentRole !== expectedRole) {

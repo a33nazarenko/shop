@@ -1,30 +1,30 @@
 <div class="row">
   <div class="col-md-6 offset-md-3">
-      <form class="create-product" [formGroup]="createProductForm" (ngOnSubmit)="onSubmit()">
-          <div class="form-group" [ngClass]="{'has-error': createProductForm.get('name').invalid && createProductForm.get('name').touched}">
+      <form class="create-product" [formGroup]="createProductForm" (ngSubmit)="onSubmit()">
+          <div class="form-group" [ngClass]="{'has-error': createProductForm.get('title').invalid && createProductForm.get('title').touched}">
             <label for="exampleInputTitle">Name</label>
-            <input type="text" class="form-control" id="exampleInputTitle" aria-describedby="emailHelp" placeholder="Description" formControlName="name">
-            <span class="error-message" *ngIf="createProductForm.get('name').invalid && createProductForm.get('name').touched">
-                <span *ngIf="createProductForm.get('name').errors.required">
+            <input type="text" class="form-control" id="exampleInputTitle" aria-describedby="emailHelp" placeholder="Description" formControlName="title">
+            <span class="error-message" *ngIf="createProductForm.get('title').invalid && createProductForm.get('title').touched">
+                <span *ngIf="createProductForm.get('title').errors.required">
                   Required field
                 </span>
               </span>
           </div>
-          <div class="form-group" [ngClass]="{'has-error': createProductForm.get('cost').invalid && createProductForm.get('cost').touched}">
+          <div class="form-group" [ngClass]="{'has-error': createProductForm.get('price').invalid && createProductForm.get('price').touched}">
             <label for="exampleInputCost">Cost</label>
-            <input type="number" class="form-control" id="exampleInputCost" placeholder="Cost" formControlName="cost">
-            <span class="error-message" *ngIf="createProductForm.get('cost').invalid && createProductForm.get('cost').touched">
-                <span *ngIf="createProductForm.get('cost').errors.required">
+            <input type="number" class="form-control" id="exampleInputCost" placeholder="Cost" formControlName="price">
+            <span class="error-message" *ngIf="createProductForm.get('price').invalid && createProductForm.get('price').touched">
+                <span *ngIf="createProductForm.get('price').errors.required">
                   Required field
                 </span>
               </span>
           </div>
-          <div class="form-group" [ngClass]="{'has-error': createProductForm.get('desc').invalid && createProductForm.get('desc').touched}">
+          <div class="form-group" [ngClass]="{'has-error': createProductForm.get('description').invalid && createProductForm.get('description').touched}">
             <label for="description">Description</label>
-            <textarea  id="" cols="30" rows="10" id="description" class="form-control" formControlName="desc"></textarea>
-            <span class="error-message" *ngIf="createProductForm.get('desc').invalid && createProductForm.get('desc').touched">
-                <span *ngIf="createProductForm.get('desc').errors.minlength">
-                  Description minLength = {{createProductForm.get('desc').errors.minlength.requiredLength}}, now have {{createProductForm.get('desc').errors.minlength.actualLength}}
+            <textarea  id="" cols="30" rows="10" id="description" class="form-control" formControlName="description"></textarea>
+            <span class="error-message" *ngIf="createProductForm.get('description').invalid && createProductForm.get('description').touched">
+                <span *ngIf="createProductForm.get('description').errors.minlength">
+                  Description minLength = {{createProductForm.get('description').errors.minlength.requiredLength}}, now have {{createProductForm.get('description').errors.minlength.actualLength}}
                 </span>
               </span>
           </div>

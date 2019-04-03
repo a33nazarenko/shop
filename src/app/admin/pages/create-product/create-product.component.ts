@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { CreateProductsRequestAdminView } from '../../shared/entities/products/create-products-request.admin.view';
+import { CreateProductsRequestAdminView } from '../../shared/entities/products/request/create-products-request.admin.view';
 import { ProductsAdminService } from '../../shared/services/products-admin.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-product',
@@ -11,25 +12,30 @@ import { ProductsAdminService } from '../../shared/services/products-admin.servi
 export class CreateProductComponent implements OnInit {
 
   createProductForm: FormGroup;
-  constructor(private productsAdminService: ProductsAdminService) { }
+  constructor(private productsAdminService: ProductsAdminService, private router: Router) { }
 
   ngOnInit() {
     this.createProductForm = new FormGroup({
-      'name': new FormControl(null, [Validators.required, Validators.minLength(10)]),
-      'cost': new FormControl(null, [Validators.required]),
+      'title': new FormControl(null, [Validators.required, Validators.minLength(10)]),
+      'price': new FormControl(null, [Validators.required]),
       'image': new FormControl(null, [Validators.required]),
-      'desc': new FormControl(null, [Validators.minLength(50)])
+      'description': new FormControl(null, [Validators.minLength(5)])
     });
 
     
   }
 
   onSubmit() {
-    const model: CreateProductsRequestAdminView = { ...this.createProductForm.value };
+    this.createProduct();
+  }
 
-    this.productsAdminService.create(model).subscribe((response) => {
-      console.log(response)
+  createProduct() {
+    const model: CreateProductsRequestAdminView = { ...this.createProductForm.value };
+   
+    this.productsAdminService.create(model).subscribe(() => {
+      this.router.navigate(['/admin/dashboard']);
     })
+
   }
 
 }

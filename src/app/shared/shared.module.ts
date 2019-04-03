@@ -7,9 +7,10 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
 import { RoleHelper } from './helpers/role.helper';
 import { TokenHelper } from './helpers/token.helpers';
 import { RoleGuard } from './guards/role.guard';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
-  declarations: [ HeaderComponent, FooterComponent, NotFoundPageComponent],
+  declarations: [ HeaderComponent, FooterComponent, NotFoundPageComponent, FilterPipe],
   imports: [
     CommonModule,
     ReactiveFormsModule,

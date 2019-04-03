@@ -1,11 +1,12 @@
 import { Injectable } from "@angular/core";
 import { Observable } from 'rxjs';
-import { CreateProductsRequestAdminView } from '../entities/products/create-products-request.admin.view';
+import { CreateProductsRequestAdminView } from '../entities/products/request/create-products-request.admin.view';
 import { HttpClient } from '@angular/common/http';
 import { GetAllProductResponseAdminViewItem, GetAllProductsResponseAdminView } from '../entities/products/response/get-all-products-response.admin.view';
 import { GenericResponseView } from 'src/app/shared/entities/generic-response.view';
 import { map } from 'rxjs/operators';
 import { GetByIdProductsResponseAdminView } from '../entities/products/response/get-by-id-products-response.admin.view';
+import { UpdateProductsRequestAdminView } from '../entities/products/request/update-products-request.admin.view';
 
 @Injectable()
 export class ProductsAdminService {
@@ -29,5 +30,9 @@ export class ProductsAdminService {
 
     delete(productId: string): Observable<void> {
         return this.http.delete<void>('http://localhost:52994/api/admin/products/delete?productId=' + productId);
+    }
+
+    update(model: UpdateProductsRequestAdminView): Observable<void> {
+        return this.http.put<void>('http://localhost:52994/api/admin/products/update', model);
     }
 }
